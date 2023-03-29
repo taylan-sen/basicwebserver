@@ -9,5 +9,8 @@ with socket.socket() as s:
   conn,addr = s.accept()
   with conn:
     print('Incoming connection from:', addr)
+    # receive the incoming request
+    request = conn.recv(2048)
+    print('REQUEST:', request.decode())
 
 print('Webserver complete')
